@@ -2,9 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <h1>Hope to see you soon</h1>
+<div class="centered-layout">
+    <div class="col home-holder centered-card">
+        <h1>Sign Out?</h1>
+        <p>Are you sure you want to sign out of your account?</p>
+        <form action="" method="post" class="auth-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary full-btn">Sign Out</button>
+            <a href="{% url 'notes.list' %}" class="btn btn-ghost full-btn" style="text-align: center; text-decoration: none; margin-top: 0.75rem;">Cancel</a>
+        </form>
     </div>
 </div>
 {% endblock %}

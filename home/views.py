@@ -5,16 +5,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 # from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class SignupView(CreateView):
     form_class = UserCreationForm
     template_name = 'home/register.html'
-    success_url = 'smart/notes'
+    success_url = reverse_lazy('notes.list')
 
 class LoginInterfaceView(LoginView):
     template_name = 'home/login.html'
+    redirect_authenticated_user = True
 
 class LogoutInterfaceView(LogoutView):
     template_name = 'home/logout.html'

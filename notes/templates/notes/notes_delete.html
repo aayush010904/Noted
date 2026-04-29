@@ -3,13 +3,17 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col">
-        <form action=""  method="post">
+<div class="centered-layout">
+    <div class="centered-card" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 2rem; box-shadow: var(--shadow-sm);">
+        <h1 style="margin: 0 0 1rem; font-size: 1.5rem; font-weight: 600;">Delete Note?</h1>
+        <p style="margin: 0 0 1rem; color: var(--text-secondary);">Are you sure you want to delete <strong>"{{ note.title }}"</strong>?</p>
+        <p style="margin: 0 0 2rem; color: var(--danger); font-weight: 500;">This action cannot be undone.</p>
+        <form action="" method="post">
             {% csrf_token %}
-            <p>Are you sure you want to delete? <q>{{note.title}}</q> </p>
-            <p>This action can't be undone.</p>
-            <input type="submit" class="btn" value="confirm">
+            <div style="display: flex; gap: 1rem; flex-direction: column;">
+                <button type="submit" class="btn" style="background: var(--danger); color: white; width: 100%; padding: 0.75rem;">Delete Permanently</button>
+                <a href="{% url 'notes.details' pk=note.id %}" class="btn btn-ghost" style="text-align: center; text-decoration: none; padding: 0.75rem; width: 100%;">Cancel</a>
+            </div>
         </form>
     </div>
 </div>

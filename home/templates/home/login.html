@@ -2,9 +2,18 @@
 {% load static %}
 
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class="btn-success">
-    </form>
+<div class="centered-layout">
+    <div class="col home-holder centered-card">
+        <p class="eyebrow">Sign In</p>
+        <h1>Welcome back</h1>
+        <form action="" method="post" class="auth-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary full-btn">Sign In</button>
+        </form>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+            Don't have an account? <a href="{% url 'signup' %}" style="color: var(--accent-primary); font-weight: 500;">Sign up</a>
+        </p>
+    </div>
+</div>
 {% endblock %}

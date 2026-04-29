@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <div class="col">
-        <div class="home-holder">
-            <h1 class="fs-3">Hello, World!</h1>
-            <p>welcome to the world's most amazing smart app</p>
-            <a href="{% url "notes.list" %}">Go to smart App</a>
-        </div>
+<div class="centered-layout" style="min-height: 60vh;">
+    <div class="col home-holder">
+        <h1>Welcome to Noted</h1>
+        <p>A minimal and clean note-taking application for capturing and organizing your thoughts.</p>
+        <a href="{% url "notes.list" %}" class="btn btn-primary">Start Taking Notes</a>
     </div>
+</div>
 {% endblock %}
 
 
